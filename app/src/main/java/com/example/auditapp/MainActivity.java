@@ -17,22 +17,23 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQ_STORAGE = 100;
 
     private EditText etAuditorName, etRackNumber;
-    private Button btnStartAudit;
+    private Button btnStartAudit, btnContinueAudit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etAuditorName = findViewById(R.id.etAuditorName);
-        etRackNumber  = findViewById(R.id.etRackNumber);
-        btnStartAudit = findViewById(R.id.btnStartAudit);
+        etAuditorName   = findViewById(R.id.etAuditorName);
+        etRackNumber    = findViewById(R.id.etRackNumber);
+        btnStartAudit   = findViewById(R.id.btnStartAudit);
+        btnContinueAudit= findViewById(R.id.btnContinueAudit);
 
         checkStoragePermission();
-        FileUtils.createAuditFolders();
         FileUtils.ensureBaseDirs();
 
-        btnStartAudit.setOnClickListener(v -> startAudit());
+        btnStartAudit.setOnClickListener(v -> startAudit(false));
+        btnContinueAudit.setOnClickListener(v -> startAudit(true));
     }
 
     private void checkStoragePermission() {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void startAudit() {
+    private void startAudit(boolean continueExisting) {
         String auditor = etAuditorName.getText().toString().trim();
         String rack    = etRackNumber.getText().toString().trim();
 
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, ScanActivity.class);
         i.putExtra("auditor", auditor);
         i.putExtra("rack", rack);
+        i.putExtra("continueExisting", continueExisting);
         startActivity(i);
     }
 }

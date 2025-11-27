@@ -12,6 +12,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- Master file dropdown -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:text="Master:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+        <Spinner
+            android:id="@+id/spMasterFiles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Auto-scan delay controls -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <Spinner
+            android:id="@+id/spDelay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etCustomDelay"
+            android:hint="Custom (sec)"
+            android:inputType="numberDecimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp" />
+
+    </LinearLayout>
+
+
+
     <TextView
         android:id="@+id/tvLastCode"
         android:text="Last scanned:"
@@ -26,6 +73,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- Manual entry row -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <EditText
+            android:id="@+id/etManualCode"
+            android:hint="Enter code manually"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <Button
+            android:id="@+id/btnAddManual"
+            android:text="Add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lvScannedItems"
         android:layout_marginTop="12dp"
@@ -33,7 +103,8 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- New bottom bar with + and Finish Rack -->
+    <!-- Bottom bar: + and Finish Rack -->
+    <!-- Bottom bar: Start, Stop, Finish Rack -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -49,12 +120,21 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/btnStopScan"
+            android:text="Stop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp" />
+
+        <Button
             android:id="@+id/btnFinishRack"
             android:text="Finish Rack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_marginStart="8dp" />
     </LinearLayout>
+
 
 </LinearLayout>

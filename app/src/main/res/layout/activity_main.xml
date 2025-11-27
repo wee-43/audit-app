@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/etAuditorName"
-        android:hint="Auditor name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Auditor name" />
 
     <EditText
         android:id="@+id/etRackNumber"
-        android:hint="Rack number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:hint="Rack number" />
 
     <Button
         android:id="@+id/btnStartAudit"
-        android:text="Start Audit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:text="Start NEW Rack" />
+
+    <Button
+        android:id="@+id/btnContinueAudit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Continue EXISTING Rack" />
 
 </LinearLayout>
